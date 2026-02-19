@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti Mamá 🤍</title>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:linear-gradient(135deg,#2b5876,#4e4376);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    overflow:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    padding:30px;
+    text-align:center;
+}
+
+.screen{
+    display:none;
+    animation:fade 1.4s ease;
+}
+
+.screen.active{display:block;}
+
+h1{font-weight:500;}
+
+p{
+    font-size:16px;
+    line-height:1.7;
+    opacity:0.95;
+}
+
+button{
+    margin-top:35px;
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#4e4376;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.final-title{
+    animation:heartbeat 1.4s infinite;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes heartbeat{
+    0%{transform:scale(1);}
+    25%{transform:scale(1.05);}
+    40%{transform:scale(1);}
+    60%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 AUDIO REAL (CLAVE) -->
+<audio id="music" loop>
+    <source src="https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+<div class="screen active" id="screen1">
+    <h1>Hola mamá 🤍</h1>
+    <p>
+        Hoy no quería dejarle un mensaje cualquiera…
+        sino algo especial.
+    </p>
+    <button onclick="startExperience()">✨</button>
+</div>
+
+<div class="screen" id="screen2">
+    <p>
+        Sé que hay cosas que a veces no digo tanto como debería.
+    </p>
+    <button onclick="next(3)">Continuar</button>
+</div>
+
+<div class="screen" id="screen3">
+    <p>
+        Solo quiero que hoy tenga un día bonito,
+        tranquilo y lleno de momentos que la hagan sonreír.
+    </p>
+    <button onclick="next(4)">🤍</button>
+</div>
+
+<div class="screen" id="screen4">
+    <p>
+        La vida pasa tan rápido…
+        pero nunca es tarde para agradecer lo verdaderamente importante.
+    </p>
+    <button onclick="next(5)">✨</button>
+</div>
+
+<div class="screen" id="screen5">
+    <p>
+        Gracias por todo lo que ha hecho por mí,
+        por su esfuerzo, su paciencia
+        y por cada cosa que forma parte de quien soy hoy.
+    </p>
+    <button onclick="next(6)">🤍</button>
+</div>
+
+<div class="screen" id="screen6">
+    <p>
+        Más allá de cualquier diferencia o cualquier silencio…
+        quiero que siempre tenga claro algo:
+    </p>
+    <button onclick="next(7)">✨</button>
+</div>
+
+<div class="screen" id="screen7">
+    <h1 class="final-title">La amo con todo mi corazón 🤍</h1>
+    <p>Siempre voy a desearle lo mejor del mundo.</p>
+    <button onclick="next(8)">✨</button>
+</div>
+
+<div class="screen" id="screen8">
+    <h1 class="final-title">Feliz cumpleaños mamá 🤍</h1>
+    <p>Un abrazo enorme.</p>
+</div>
+
+</div>
+
+<script>
+function startExperience(){
+    document.getElementById("music").play();  // 🎵 GARANTIZA SONIDO
+    next(2);
+}
+
+function next(num){
+    var screens=document.getElementsByClassName("screen");
+    for(var i=0;i<screens.length;i++){
+        screens[i].classList.remove("active");
+    }
+    document.getElementById("screen"+num).classList.add("active");
+}
+</script>
+
+</body>
+</html>
